@@ -1,0 +1,38 @@
+{
+  "name": "gl-shader-state",
+  "version": "1.0.0",
+  "description": "Configure the WebGL shader state with a data structure",
+  "main": "shader-state.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TatumCreative/gl-shader-state"
+  },
+  "keywords": [
+    "WebGL",
+    "shader",
+    "gl"
+  ],
+  "author": "Greg Tatum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TatumCreative/gl-shader-state/issues"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "homepage": "https://github.com/TatumCreative/gl-shader-state",
+  "dependencies": {
+    "lodash.assign": "^3.1.0",
+    "lodash.contains": "^2.4.3",
+    "lodash.find": "^3.2.0",
+    "lodash.isarray": "^3.0.2",
+    "lodash.isnumber": "^3.0.1",
+    "lodash.isstring": "^3.0.1",
+    "lodash.isundefined": "^3.0.1",
+    "lodash.map": "^3.1.1",
+    "lodash.mapvalues": "^3.0.0"
+  }
+}
