@@ -2,7 +2,7 @@
   "name": "gl-shader-state",
   "version": "1.0.0",
   "description": "Configure the WebGL shader state with a data structure",
-  "main": "shader-state.js",
+  "main": "lib/shader-state.js",
   "scripts": {},
   "repository": {
     "type": "git",
