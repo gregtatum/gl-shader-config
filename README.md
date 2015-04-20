@@ -54,8 +54,8 @@ The main function will return a new copy of your config object that has been fil
 		}
 	})
 	
-	magentaBox.drawBind()
-	cyanBox.drawBind()
+	magentaBox.bindDraw()
+	cyanBox.bindDraw()
 
 
 ## The config object
@@ -72,14 +72,14 @@ The config defines the shader state. Any missing details will be filled in, and 
 	  ..
 	}
 
-Additionally the following functions will be added to the processed config object:
+Additionally the following functions will be added to the mapped config object:
 
 	shaderConfig = { 
 	    ...
 	  , bind     : function() {}  // bind the shader config
 	  , unbind   : function() {}  // unbind the shader config
 	  , draw     : function() {}  // draw the shader
-	  , drawBind : function() {}  // convenience function to bind, draw, unbind
+	  , bindDraw : function() {}  // convenience function to bind, draw, unbind
 	}
 
 ### config.elements
@@ -144,8 +144,50 @@ The types can follow the fall into one of the values as defined below. These cor
 
 ### config.textures
 
-TODO
+Sets up a uniform texture.
+
+    config.textures = {
+        textureName : {
+        
+          // Basic values
+          
+		  , url            : "/texture.png"     // An image to load, fires callback when loaded
+          , callback       : Function           // Called after the image url has been loaded
+          , image          : Image              // A loaded Image
+          
+          // Advanced
+		  
+          , location       : UniformLocation
+          , unit           : 0                  // int value to which unit the texture will be bound
+          , unitEnum       : gl.TEXTURE0        // the gl enum of the above value                             
+          , level          : 0                  // level of detail for the texture
+          , internalformat : gl.RGBA            // ALPHA, LUMINANCE, LUMINANCE_ALPHA, RGB, RGBA
+          , format         : gl.RGBA            // ALPHA, LUMINANCE, LUMINANCE_ALPHA, RGB, RGBA
+          , mipmap         : false              // Generate a mipmap, texture dimensions must be power of 2
+          , state          : { loaded: false }  // Whether or not the image is loaded or not
+          , type           : gl.UNSIGNED_BYTE   // UNSIGNED_BYTE, FLOAT, UNSIGNED_SHORT_5_6_5,
+                                                // UNSIGNED_SHORT_4_4_4_4, UNSIGNED_SHORT_5_5_5_1
+          , parameters     : [ [gl.TEXTURE_MIN_FILTER, gl.LINEAR] ]
+                             // key value tuples to define the texture parameters via gl.texParameteri()
+                             // TEXTURE_MAG_FILTER, TEXTURE_MIN_FILTER, TEXTURE_WRAP_S, TEXTURE_WRAP_T
+        }
+    }
 
 ### config.drawing
 
-TODO
+gl.drawElements (used when an elements property exists)
+
+	config.drawing = {
+	    mode   : gl.TRIANGLES           // POINTS, LINES, LINE_STRIP, LINE_LOOP, TRIANGLES, TRIANGLE_STRIP, TRIANGLE_FAN
+	  , count  : elements.value.length  // The number of elements to render
+	  , type   : gl.UNSIGNED_SHORT      // Must be a gl.UNSIGNED_SHORT
+	  , offset : 0                      // How many BYTES to offset by
+	}
+
+gl.drawArrays (used when no elements property exists)
+
+	config.drawing = {
+        mode : gl.TRIANGLES  // POINTS, LINES, LINE_STRIP, LINE_LOOP, TRIANGLES, TRIANGLE_STRIP, TRIANGLE_FAN
+      , first : 0            // The first element to render in the array of vector points
+      , count : Number       // Guesses the vertex count from the attributes' values
+	}
