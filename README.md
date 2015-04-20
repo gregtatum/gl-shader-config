@@ -23,7 +23,7 @@ The main function will return a new copy of your config object that has been fil
 
 	var ShaderConfig = require('gl-shader-config')
 	
-	var magentaBox = ShaderConfig('gl-shader-config')( gl, {
+	var magentaBox = ShaderConfig( gl, {
 		
 		program: shaderProgram,
 		
