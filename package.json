@@ -1,12 +1,12 @@
 {
-  "name": "gl-shader-state",
+  "name": "gl-shader-config",
   "version": "1.0.0",
   "description": "Configure the WebGL shader state with a data structure",
-  "main": "lib/shader-state.js",
+  "main": "lib/shader-config.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/TatumCreative/gl-shader-state"
+    "url": "https://github.com/TatumCreative/gl-shader-config"
   },
   "keywords": [
     "WebGL",
@@ -16,14 +16,14 @@
   "author": "Greg Tatum",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TatumCreative/gl-shader-state/issues"
+    "url": "https://github.com/TatumCreative/gl-shader-config/issues"
   },
   "browserify": {
     "transform": [
       "babelify"
     ]
   },
-  "homepage": "https://github.com/TatumCreative/gl-shader-state",
+  "homepage": "https://github.com/TatumCreative/gl-shader-config",
   "dependencies": {
     "lodash.assign": "^3.1.0",
     "lodash.contains": "^2.4.3",
