@@ -141,6 +141,17 @@ The types can follow the fall into one of the values as defined below. These cor
 	matrixUniformTypes = [ "Matrix2fv", "Matrix3fv", "Matrix4fv" ]
 	singleUniformTypes = [ "1f",  "2f",  "3f",  "4f",  "1i",  "2i",  "3i",  "4i" ]
 
+Uniforms can also be assigned values directly, and this module will try and decide the intended type. It takes floats, arrays, and Float32Arrays. These simple assignments get mapped to the structure above
+
+	config.uniforms = {
+	    color : [1,0,0] // 3fv
+	    intensity : 15 // 1f
+		position : new Float32Array(2) // 2fv
+	    scale : [ 3, 0, 0, 0,
+	              0, 3, 0, 0,
+	              0, 0, 3, 0,
+	              0, 0, 0, 1  ] // Matrix4fv
+	}
 
 ### config.textures
 
